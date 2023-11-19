@@ -14,11 +14,10 @@ import gettext
 import importlib
 
 from .utils import SettingProperty, SETTING_DIR, notify_error, format_class_name
-from .gui import App, MenuItem, Platform
 from .protocol import DLNAProtocol
 from .server import Service
 from .utils import RENDERER_DIR, PROTOCOL_DIR, Setting
-from macast_renderer.mpv import MPVRenderer
+from macast_renderer.ps3 import MovianRenderer
 
 logger = logging.getLogger("main")
 logger.setLevel(logging.DEBUG)
@@ -161,7 +160,7 @@ class MacastPluginManager:
             open(init_file_path, 'a').close()
 
 
-class Macast(App):
+class Macast():
     if sys.platform == 'win32':
         ICON_MAP = ['assets/icon.ico',
                     'assets/menu_light_large.png',
@@ -504,7 +503,7 @@ class Macast(App):
 
 def gui(renderer=None, protocol=None, lang=gettext.gettext):
     if renderer is None:
-        renderer = MPVRenderer(lang, Setting.mpv_default_path)
+        renderer = MovianRenderer()
     if protocol is None:
         protocol = DLNAProtocol()
     Macast(renderer, protocol, lang).start()
@@ -512,7 +511,7 @@ def gui(renderer=None, protocol=None, lang=gettext.gettext):
 
 def cli(renderer=None, protocol=None):
     if renderer is None:
-        renderer = MPVRenderer(path=Setting.mpv_default_path)
+        renderer = MovianRenderer()
     if protocol is None:
         protocol = DLNAProtocol()
     Service(renderer, protocol).run()

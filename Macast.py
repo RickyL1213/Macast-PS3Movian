@@ -5,7 +5,7 @@ import sys
 import gettext
 import logging
 from macast import Setting, SETTING_DIR
-from macast.macast import gui
+from macast.macast import cli
 
 logger = logging.getLogger("Macast")
 logger.setLevel(logging.DEBUG)
@@ -57,4 +57,4 @@ if __name__ == '__main__':
     clear_env()
     get_lang()
     set_mpv_default_path()
-    gui(lang=_)
+    cli()

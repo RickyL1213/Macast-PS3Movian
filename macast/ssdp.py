@@ -120,7 +120,7 @@ class SSDPServer:
             except socket.error as e:
                 logger.error("SSDP cannot set SO_REUSEADDR")
                 logger.error(str(e))
-
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         # self.sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 10)
 
         self.ip_list = list(Setting.get_ip())
