@@ -54,7 +54,4 @@ def clear_env():
 
 
 if __name__ == '__main__':
-    clear_env()
-    get_lang()
-    set_mpv_default_path()
     cli()

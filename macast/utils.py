@@ -39,6 +39,7 @@ class SettingProperty(Enum):
     Macast_Protocol = 7
     Blocked_Interfaces = 8
     Additional_Interfaces = 9
+    PS3_IPs = 10
 
 
 class Setting:
@@ -173,6 +174,12 @@ class Setting:
         """Get application port
         """
         return Setting.get(SettingProperty.ApplicationPort, DEFAULT_PORT)
+
+    @staticmethod
+    def get_ps3_ips():
+        """Get PS3 ip adresses
+        """
+        return Setting.get(SettingProperty.PS3_IPs)
 
     @staticmethod
     def get_locale():
