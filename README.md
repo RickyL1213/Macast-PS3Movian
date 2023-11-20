@@ -1,3 +1,11 @@
+This fork will allow Macast to run headless without disaplay and redict m3u link to PS3 Movian app.
+To run:
+  ```shell
+  python Macast.py
+  ```
+
+Add your PS3 IP adress to macast_setting.json as "PS3_IPs": ["192.168.0.x"]
+
 <img align="center" src="macast_slogan.png" alt="slogan" height="auto"/>
 
 # Macast
